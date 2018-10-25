@@ -81,8 +81,8 @@ public class FirstTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
-    @Feature("Проверка разделов меню")
-    @Description(value = "Проверка разделов меню")
+    @Feature("Проверка меню - разделы сайта")
+    @Description(value = "Проверка меню - разделы сайта")
     @Test
     public void getListHref() {
         List<WebElement> innerBlockList = driver.findElements(By.xpath("//div[@class='menu-main-top-container']//ul//li/a"));
@@ -106,6 +106,7 @@ public class FirstTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
+    @Feature("Проверка блока Наши Союзники")
     @Description(value = "Проверка блока Наши Союзники")
     @Test
     public void getAllwidgetsAllies() {
