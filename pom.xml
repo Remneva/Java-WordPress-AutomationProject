@@ -82,7 +82,7 @@
                 <artifactId>allure-maven-plugin</artifactId>
                 <configuration>
                     <resultsDirectory>allure-results</resultsDirectory>
-                    <reportDirectory>${project.build.directory}/${buildNumber}</reportDirectory>
+                    <reportDirectory>${basedir}/target/allure-results</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>
