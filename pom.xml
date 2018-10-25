@@ -22,20 +22,20 @@
                 <!--<version>${maven-resources-plugin.version}</version>-->
                 <executions>
                     <!--<execution>-->
-                        <!--<id>copy-resources</id>-->
-                        <!--<phase>validate</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>copy-resources</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<outputDirectory>${basedir}/target/allure-results</outputDirectory>-->
-                            <!--<resources>-->
-                                <!--<directory>src/test/resources</directory>-->
-                                <!--<includes>-->
-                                    <!--<include>environment.properties</include>-->
-                                <!--</includes>-->
-                            <!--</resources>-->
-                        <!--</configuration>-->
+                    <!--<id>copy-resources</id>-->
+                    <!--<phase>validate</phase>-->
+                    <!--<goals>-->
+                    <!--<goal>copy-resources</goal>-->
+                    <!--</goals>-->
+                    <!--<configuration>-->
+                    <!--<outputDirectory>${basedir}/target/allure-results</outputDirectory>-->
+                    <!--<resources>-->
+                    <!--<directory>src/test/resources</directory>-->
+                    <!--<includes>-->
+                    <!--<include>environment.properties</include>-->
+                    <!--</includes>-->
+                    <!--</resources>-->
+                    <!--</configuration>-->
                     <!--</execution>-->
                 </executions>
             </plugin>
@@ -62,13 +62,6 @@
                         </property>
                     </systemProperties>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
@@ -95,6 +88,11 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>3.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
