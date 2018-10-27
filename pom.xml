@@ -122,6 +122,37 @@
             <artifactId>allure-junit-adaptor</artifactId>
             <version>1.5.4</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>3.6.1.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.9.5</version>
+        </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.hamcrest/java-hamcrest &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.hamcrest</groupId>-->
+            <!--<artifactId>java-hamcrest</artifactId>-->
+            <!--<version>2.0.0.0</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <reporting>
