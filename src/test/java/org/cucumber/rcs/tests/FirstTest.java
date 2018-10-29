@@ -2,15 +2,16 @@ package org.cucumber.rcs.tests;
 
 import Pages.MainPage;
 import io.qameta.allure.*;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,19 +21,35 @@ import static java.util.Optional.*;
 
 public class FirstTest {
 
-    private static WebDriver driver;
+
     private static MainPage mainPage;
+    private RemoteWebDriver driver;
 
+    /// Предусловия для запуска на Selenoid
 
-    @BeforeClass
-    public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
+    @Before
+    public void openDriver() throws Exception {
+        final DesiredCapabilities browser = DesiredCapabilities.chrome();
+        driver = new RemoteWebDriver(new URL(
+                "http://localhost:4444/wd/hub"
+        ), browser);
         driver.get("http://rotfront.su");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         mainPage = new MainPage(driver);
+
     }
+
+    /// Предусловия для запуска на Selenium
+
+//    private static WebDriver driver;
+//    @BeforeClass
+//    public static void setup() {
+//        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+//        driver = new ChromeDriver();
+//        driver.get("http://rotfront.su");
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//        mainPage = new MainPage(driver);
+//    }
 
     @Feature("Проверка блоков главной страницы")
     @Description(value = "Проверка блоков главной страницы")
@@ -139,9 +156,17 @@ public class FirstTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
-    @AfterClass
-    public static void tearChDown() {
+//    @AfterClass
+//    public static void tearChDown() {
+//
+//        driver.quit();
+//    }
 
-        driver.quit();
+    @After
+    public void closeDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 }
