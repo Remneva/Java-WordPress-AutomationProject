@@ -2,6 +2,7 @@ package org.cucumber.rcs.tests;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.qameta.allure.Description;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
@@ -16,6 +17,7 @@ import java.io.IOException;
 
 public class FakeRestTest {
 
+    @Description(value = "Генерация POST request и проверка содержания response")
     @Test
     public void givenFakeResourses()
             throws ClientProtocolException, IOException {

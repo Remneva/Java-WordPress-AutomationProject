@@ -1,8 +1,8 @@
 package org.cucumber.rcs.tests;
 
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.qameta.allure.Description;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -24,8 +24,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RestTest {
 
+    @Description(value = "Проверка ответа на запрос несуществующей статьи по id")
     @Test
-    public void givenUserDoesNotExists_whenUserInfoIsRetrieved_then404IsReceived()
+    public void IdDoesNotExists()
             throws ClientProtocolException, IOException, AssertionError {
 
         // Given
@@ -41,14 +42,14 @@ public class RestTest {
                 equalTo(HttpStatus.SC_NOT_FOUND));
     }
 
+    @Description(value = "Проверка заголовка формата MIME")
     @Test
-    public void
-    givenRequestWithNoAcceptHeader_whenRequestIsExecuted_thenDefaultResponseContentTypeIsJson()
+    public void givenRequestWithNHeader()
             throws ClientProtocolException, IOException {
 
         // Given
         String jsonMimeType = "application/json";
-        HttpUriRequest request = new HttpGet("https://rotfront.su/wp-json/wp/v2/36028");
+        HttpUriRequest request = new HttpGet("https://rotfront.su/wp-json/wp/v2/posts/36028");
 
         // When
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
@@ -58,8 +59,9 @@ public class RestTest {
         assertEquals(jsonMimeType, mimeType);
     }
 
+    @Description(value = "Проверка заголовка server")
     @Test
-    public void givenRequestWithNoAcceptHeader()
+    public void givenRequestWithServerHeader()
             throws ClientProtocolException, IOException {
 
         // Given
@@ -74,19 +76,16 @@ public class RestTest {
         assertEquals(serverType, responseServerType);
     }
 
+    @Description(value = "Проверка заголовка title из Json")
     @Test
-    public void
-    givenUserExists_whenUserInformationIsRetrieved()
+    public void aseertActualTitle()
             throws ClientProtocolException, IOException {
 
-        // Given
         String title = "О скандальных заявлениях придворных &#171;коммунистов&#187;";
         HttpUriRequest request = new HttpGet("https://rotfront.su/wp-json/wp/v2/posts/36028");
 
-        // When
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-        // Then
         String responseJson = EntityUtils.toString(response.getEntity());
 
         ObjectMapper mapper = new ObjectMapper();
