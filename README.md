@@ -5,5 +5,6 @@ Httpclient
 Jackson
 Hamcrest
 
+Selenoid
 Allure
 
