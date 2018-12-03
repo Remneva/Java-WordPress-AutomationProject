@@ -34,7 +34,7 @@ public class CookieTest {
     public void authentBasic() throws IOException {
         CredentialsProvider provider = new BasicCredentialsProvider();
         UsernamePasswordCredentials credentials
-                = new UsernamePasswordCredentials("devel", "rotfront");
+                = new UsernamePasswordCredentials(" ", " ");
         provider.setCredentials(AuthScope.ANY, credentials);
 
         BasicCookieStore cookieStore = new BasicCookieStore();
@@ -46,7 +46,7 @@ public class CookieTest {
         cookie2.setDomain(".rotfront.org");
         cookie2.setPath("/");
         cookieStore.addCookie(cookie2);
-        BasicClientCookie cookie3 = new BasicClientCookie("PHPSESSID", "2ktnc7d34320qok3mdb7jpu4f1");
+        BasicClientCookie cookie3 = new BasicClientCookie("PHPSESSID", "");
         cookie3.setDomain(".rotfront.org");
         cookie3.setPath("/");
         cookieStore.addCookie(cookie3);
